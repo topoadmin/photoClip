@@ -1,5 +1,4 @@
 # jQuery photoClip
-改自 jquery-photoClip http://www.jq22.com/jquery-info4894
 ---
 
 ### photoClip
