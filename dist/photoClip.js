@@ -27,9 +27,9 @@
 	"use strict";
 
 	if(typeof define === "function" && define.amd) {
-		define(["jquery", "iscroll", "hammer"], factory);
+		define(["jquery", "iscroll-zoom", "hammer"], factory);
 	} else if(typeof exports === "object") {
-		module.exports = factory(require("jquery"), require("iscroll"), require("hammer"));
+		module.exports = factory(require("jquery"), require("iscroll-zoom"), require("hammer"));
 	} else {
 		factory(root.jQuery, root.IScroll, root.Hammer);
 	}
