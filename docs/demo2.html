@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<title>裁剪图片演示-带初始值</title>
+		<link rel="stylesheet" type="text/css" href="../dist/amazeui.min.css" />
+		<style type="text/css">
+			#clip {
+				width: 100%;
+				height: 400px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="clip"></div>
+
+		<div class="am-margin-sm">
+			<button type="button" class="am-btn am-btn-primary" id="toggle-file">上传头像</button>
+			<button type="button" class="am-btn am-btn-primary" id="clipBtn">裁剪</button>
+		</div>
+
+		<input class="am-hide" type="file" id="file">
+
+		<img class="am-img-circle" id="img-view"/>
+
+		<script src="../dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../dist/iscroll.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../dist/hammer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../dist/photoClip.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function() {
+				var $clip = $("#clip");
+				var $file = $("#file");
+				$("#toggle-file").click(function() {
+					$file.trigger("click");
+				});
+
+				$clip.photoClip({
+					width: 250,
+					height: 250,
+					fileMinSize: 20,
+					file: $file,
+					defaultImg: "../img/4.jpg",
+					ok: "#clipBtn",
+					loadStart: function() {
+						console.log("照片读取中");
+					},
+					loadProgress: function(progress) {
+						console.log(progress);
+					},
+					loadError: function() {
+						console.log("图片加载失败");
+					},
+					loadComplete: function() {
+						console.log("照片读取完成");
+					},
+					imgSizeMin: function(kbs) {
+						console.log(kbs, "上传图片过小");
+					},
+					clipFinish: function(dataURL) {
+						document.getElementById("img-view").src = dataURL;
+					}
+				});
+			})
+		</script>
+
+	</body>
+
+</html>
