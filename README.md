@@ -1,4 +1,5 @@
 # jQuery photoClip
+## qq群：82447172
 ---
 
 ### photoClip
