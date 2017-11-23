@@ -81,6 +81,7 @@
 			loadError = option.loadError,
 			clipFinish = option.clipFinish,
 			loadProgress = option.loadProgress,
+		    	imgSizeMin= option.imgSizeMin,
 			formatError = option.formatError;
 
 		if(outputType === "jpg") {
